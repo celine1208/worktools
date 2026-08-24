@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>퇴직금 모의 계산기 | WorkTools</title>
+    <meta name="description"
+        content="근로기준법 기준 예상 퇴직금 자동 계산기. 최근 3개월 기본급, 기타수당, 연간 상여금 및 연차수당을 입력하여 예상 퇴직금을 실시간으로 확인하세요.">
+    <meta name="keywords" content="퇴직금 계산기, 예상 퇴직금, 평균임금 계산, 퇴직금 공식, 근로기준법 퇴직금, 평균임금 3개월">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="퇴직금 모의 계산기 - WorkTools">
+    <meta property="og:description" content="재직기간 및 3개월 임금 기반 예상 퇴직금 자동 산출 서비스">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* 퇴직금 계산기 전용 추가 스타일 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .severance-result-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .severance-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .calc-detail-list {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #bfdbfe;
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .calc-detail-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">WorkTools</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="word-counter.html">글자수 세기</a></li>
+                    <li><a href="annual-leave.html">연차 계산기</a></li>
+                    <li><a href="dday-calculator.html">D-Day 계산기</a></li>
+                    <li><a href="severance-pay.html">퇴직금 계산기</a></li>
+                    <li><a href="px-to-rem.html">PX↔REM/WebP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <section class="hero" style="margin-bottom: 25px;">
+            <h1>퇴직금 모의 계산기</h1>
+            <p>입사/퇴사일과 최근 임금 내역을 입력하시면 예상 퇴직금을 정밀 산출합니다.</p>
+        </section>
+
+        <!-- 계산기 영역 -->
+        <div class="tool-container">
+            <form id="severanceForm">
+                <div class="grid-2col">
+                    <div class="form-group">
+                        <label for="joinDate">입사일자</label>
+                        <input type="date" id="joinDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="retireDate">퇴사일자 (마지막 근로일 다음 날)</label>
+                        <input type="date" id="retireDate" required>
+                    </div>
+                </div>
+
+                <div class="grid-2col">
+                    <div class="form-group">
+                        <label for="monthlyBase">최근 3개월 월 기본급 (원)</label>
+                        <input type="number" id="monthlyBase" placeholder="예: 3000000" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="monthlyAllow">최근 3개월 월 기타수당 (원)</label>
+                        <input type="number" id="monthlyAllow" placeholder="예: 200000" min="0" value="0">
+                    </div>
+                </div>
+
+                <div class="grid-2col">
+                    <div class="form-group">
+                        <label for="annualBonus">연간 상여금 총액 (원)</label>
+                        <input type="number" id="annualBonus" placeholder="예: 4000000" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="annualLeavePay">연차유급휴가 수당 (원)</label>
+                        <input type="number" id="annualLeavePay" placeholder="전년도 미사용 연차수당" min="0" value="0">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">퇴직금 계산하기</button>
+            </form>
+
+            <!-- 결과 출력 영역 -->
+            <div class="result-box" id="resultBox">
+                <div class="severance-result-card">
+                    <div style="font-size: 0.95rem; color: var(--text-sub);">예상 세전 퇴직금</div>
+                    <div class="severance-amount" id="totalSeverance">0 원</div>
+
+                    <ul class="calc-detail-list">
+                        <li><span>재직일수:</span><strong id="detailWorkingDays">0 일</strong></li>
+                        <li><span>3개월간 총 임금:</span><strong id="detail3MonthWage">0 원</strong></li>
+                        <li><span>1일 평균임금:</span><strong id="detailAvgWage">0 원</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 애드센스 광고 영역 -->
+        <div class="ad-container">
+            <span></span>
+        </div>
+
+        <!-- SEO 포스팅 영역 -->
+        <article class="seo-content">
+            <h2>퇴직금 지급 대상 및 기본 조건</h2>
+            <p>
+                근로자퇴직급여 보장법에 따라 1주당 소정근로시간이 15시간 이상이고, 1년 이상 계속 근로한 근로자는 퇴직금 지급 대상이 됩니다.
+                정규직뿐만 아니라 계약직, 아르바이트, 파트타임 근로자도 조건 충족 시 동일하게 지급받습니다.
+            </p>
+
+            <h2>퇴직금 산정 공식</h2>
+            <p>퇴직금은 아래의 공식에 의해 산출됩니다.</p>
+            <ul>
+                <li><strong>퇴직금 = 1일 평균임금 × 30일 × (총 재직일수 ÷ 365)</strong></li>
+                <li><strong>1일 평균임금:</strong> 퇴직 이전 3개월간 지급된 임금 총액(기본급 + 기타수당 + 상여금 가산액 3/12 + 연차수당 가산액 3/12)을 해당 3개월간의
+                    총 일수로 나눈 금액입니다.</li>
+            </ul>
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 및 전용 스크립트 연결 -->
+    <script src="../js/common.js"></script>
+    <script src="../js/severance-pay.js"></script>
+</body>
+
+</html>

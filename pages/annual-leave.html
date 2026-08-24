@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>연차 계산기 | 근로기준법 연차/휴가 일수 자동 계산 - WorkTools</title>
+    <meta name="description"
+        content="입사일 기반 근로기준법 제60조 기준 연차 휴가 일수 자동 계산기. 1년 미만 월차, 1년 이상 가산 연차, 총 발생 연차 일수를 실시간으로 확인하세요.">
+    <meta name="keywords" content="연차 계산기, 근로기준법 연차, 입사일 기준 연차, 1년 미만 월차, 연차 휴가 계산, 가산 연차">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="연차 계산기 - WorkTools">
+    <meta property="og:description" content="근로기준법에 따른 1년 미만 및 1년 이상 연차 휴가 일수 자동 계산">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* 연차 계산기 전용 추가 스타일 */
+        .result-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .summary-card {
+            background-color: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .summary-card .title {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 5px;
+        }
+
+        .summary-card .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .notice-box {
+            margin-top: 15px;
+            padding: 12px 15px;
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary);
+            font-size: 0.88rem;
+            color: var(--text-sub);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">WorkTools</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="word-counter.html">글자수 세기</a></li>
+                    <li><a href="annual-leave.html">연차 계산기</a></li>
+                    <li><a href="dday-calculator.html">D-Day 계산기</a></li>
+                    <li><a href="severance-pay.html">퇴직금 계산기</a></li>
+                    <li><a href="px-to-rem.html">PX↔REM/WebP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <section class="hero" style="margin-bottom: 25px;">
+            <h1>연차 / 휴가 계산기</h1>
+            <p>입사일과 조회 기준일을 입력하시면 발생 연차 일수를 자동으로 계산합니다.</p>
+        </section>
+
+        <!-- 계산기 입력 카드 -->
+        <div class="tool-container">
+            <form id="annualLeaveForm">
+                <div class="form-group">
+                    <label for="joinDate">입사일자</label>
+                    <input type="date" id="joinDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetDate">조회 기준일자 (또는 퇴사 예정일)</label>
+                    <input type="date" id="targetDate" required>
+                </div>
+
+                <button type="submit" class="btn-primary">연차 일수 계산하기</button>
+            </form>
+
+            <!-- 결과 출력 영역 -->
+            <div class="result-box" id="resultBox">
+                <h3 style="margin-bottom: 15px; color: var(--text-main);">📊 연차 계산 결과</h3>
+
+                <div class="result-summary">
+                    <div class="summary-card">
+                        <div class="title">총 근속 기간</div>
+                        <div class="number" id="workingPeriod">-</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="title">총 발생 연차</div>
+                        <div class="number" id="totalLeave">-</div>
+                    </div>
+                </div>
+
+                <div class="notice-box" id="leaveDetail">
+                    <!-- 상세 계산 내역 출력 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 애드센스 광고 영역 -->
+        <div class="ad-container">
+            <span></span>
+        </div>
+
+        <!-- SEO 포스팅 영역 -->
+        <article class="seo-content">
+            <h2>근로기준법 제60조 연차 유급휴가 규정 안내</h2>
+            <p>
+                근로기준법 제60조에 따르면 사용자는 1년간 80퍼센트 이상 출근한 근로자에게 15일의 유급휴가를 주어야 합니다.
+                또한 근속연수가 늘어남에 따라 매 2년마다 1일씩 가산 연차가 발생합니다.
+            </p>
+
+            <h2>1년 미만 근로자의 연차 (월차) 발생 기준</h2>
+            <p>
+                입사 후 1년 미만인 근로자는 1개월 개근 시 1일의 유급휴가(월차)가 발생하여 최대 11일의 연차가 부여됩니다.
+                이후 입사 1주년이 되는 시점에 15일의 연차가 새로 발생합니다.
+            </p>
+
+            <h2>가산 연차 산정 기준</h2>
+            <p>
+                3년 이상 계속하여 근로한 근로자에게는 기본 15일에 최초 1년을 초과하는 매 2년에 대하여 1일을 가산한 유급휴가가 부여되며,
+                가산 휴가를 포함한 총 휴가 한도는 최대 25일입니다.
+            </p>
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 및 전용 스크립트 연결 -->
+    <script src="../js/common.js"></script>
+    <script src="../js/annual-leave.js"></script>
+</body>
+
+</html>

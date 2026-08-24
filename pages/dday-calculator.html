@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>D-Day & 날짜 계산기 | WorkTools</title>
+    <meta name="description" content="시험, 수능, 기념일, 프로젝트 마감일 D-Day 계산 및 특정 날짜 기준 N일 전/후 날짜 자동 계산기를 무료로 이용해보세요.">
+    <meta name="keywords" content="D-Day 계산기, 디데이 계산기, 날짜 계산기, 마감일 계산, 커플 기념일 계산, 백일 계산기">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="D-Day & 날짜 계산기 - WorkTools">
+    <meta property="og:description" content="D-Day 카운트다운 및 N일 전/후 날짜 실시간 산출 기능 제공">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* D-Day 계산기 전용 추가 스타일 */
+        .tab-menu {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-btn {
+            padding: 10px 18px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .dday-result-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dday-highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">WorkTools</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="word-counter.html">글자수 세기</a></li>
+                    <li><a href="annual-leave.html">연차 계산기</a></li>
+                    <li><a href="dday-calculator.html">D-Day 계산기</a></li>
+                    <li><a href="severance-pay.html">퇴직금 계산기</a></li>
+                    <li><a href="px-to-rem.html">PX↔REM/WebP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <section class="hero" style="margin-bottom: 25px;">
+            <h1>D-Day & 날짜 계산기</h1>
+            <p>목표일 카운트다운(D-Day) 및 특정 날짜의 N일 전/후 날짜를 쉽게 계산하세요.</p>
+        </section>
+
+        <!-- 계산기 영역 -->
+        <div class="tool-container">
+            <!-- 탭 메뉴 -->
+            <div class="tab-menu">
+                <button type="button" class="tab-btn active" data-tab="tabDday">D-Day 계산</button>
+                <button type="button" class="tab-btn" data-tab="tabDateAdd">N일 전/후 계산</button>
+            </div>
+
+            <!-- 탭 1: D-Day 계산기 -->
+            <div class="tab-content active" id="tabDday">
+                <form id="ddayForm">
+                    <div class="form-group">
+                        <label for="baseDate">기준일 (기본: 오늘)</label>
+                        <input type="date" id="baseDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="targetDate">목표일 (D-Day)</label>
+                        <input type="date" id="targetDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="includeBaseDay" style="width: auto; margin-right: 6px;">
+                            기준일을 1일로 포함 (기념일/백일 계산 방식)
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">D-Day 계산하기</button>
+                </form>
+
+                <div class="result-box" id="ddayResultBox">
+                    <div class="dday-result-card">
+                        <div style="font-size: 0.95rem; color: var(--text-sub);">남은 / 지난 일수</div>
+                        <div class="dday-highlight" id="ddayValue">D-Day</div>
+                        <div style="font-size: 0.9rem; color: var(--text-main);" id="ddayDetail">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 탭 2: N일 전/후 계산기 -->
+            <div class="tab-content" id="tabDateAdd">
+                <form id="dateAddForm">
+                    <div class="form-group">
+                        <label for="startDate">기준 날짜</label>
+                        <input type="date" id="startDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dayOffset">더하거나 뺄 일수 (숫자)</label>
+                        <input type="number" id="dayOffset" placeholder="예: 100 (100일 후) 또는 -30 (30일 전)" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">날짜 계산하기</button>
+                </form>
+
+                <div class="result-box" id="dateAddResultBox">
+                    <div class="dday-result-card">
+                        <div style="font-size: 0.95rem; color: var(--text-sub);">계산된 날짜</div>
+                        <div class="dday-highlight" id="calculatedDate" style="font-size: 1.8rem;">2026-00-00</div>
+                        <div style="font-size: 0.9rem; color: var(--text-main);" id="dateAddDetail">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 애드센스 광고 영역 -->
+        <div class="ad-container">
+            <span></span>
+        </div>
+
+        <!-- SEO 포스팅 영역 -->
+        <article class="seo-content">
+            <h2>D-Day 및 날짜 계산기 활용 안내</h2>
+            <p>
+                중요한 프로젝트 마감일, 자격증/수능 시험일, 결혼식, 커플 기념일 등 다가오는 일정이나 지난 일수를 간편하게 확인할 수 있습니다.
+            </p>
+
+            <h2>기념일과 D-Day 계산 방식의 차이점</h2>
+            <ul>
+                <li><strong>일반 D-Day 방식:</strong> 기준일(오늘)을 포함하지 않고 다음 날부터 1일로 카운트합니다. (예: 오늘 당일은 D-Day / D-0)</li>
+                <li><strong>기념일(100일/백일) 방식:</strong> 만난 날이나 시작한 당일을 '1일'로 계산합니다. 상단 체크박스를 활성화하면 기념일 산정 기준에 맞춰 D-Day가
+                    계산됩니다.</li>
+            </ul>
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 및 전용 스크립트 연결 -->
+    <script src="../js/common.js"></script>
+    <script src="../js/dday-calculator.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>WorkTools | 직장인 & 개발자를 위한 웹 도구 모음</title>
+    <meta name="description" content="글자수 세기, 연차 계산기, D-Day 계산기, 퇴직금 모의 계산기, PX/REM 변환기 등 업무 효율을 높여주는 무료 웹 도구 모음 사이트">
+    <meta name="keywords" content="글자수 세기, 연차 계산기, D-Day 계산기, 퇴직금 계산기, PX REM 변환기, 직장인 웹 도구">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WorkTools | 직장인 & 개발자를 위한 무료 웹 도구 모음">
+    <meta property="og:description" content="별도 설치 없이 웹 브라우저에서 바로 사용하는 무료 실무 계산기 및 변환기 플랫폼">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">WorkTools</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="pages/word-counter.html">글자수 세기</a></li>
+                    <li><a href="pages/annual-leave.html">연차 계산기</a></li>
+                    <li><a href="pages/dday-calculator.html">D-Day 계산기</a></li>
+                    <li><a href="pages/severance-pay.html">퇴직금 계산기</a></li>
+                    <li><a href="pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <!-- 히어로 섹션 -->
+        <section class="hero">
+            <h1>직장인을 위한 <br class="mobile-br"> 스마트 웹 도구 모음</h1>
+            <p>별도 설치 없이 웹 브라우저에서 바로 사용하는 <br class="mobile-br"> 무료 실무 계산기 플랫폼</p>
+        </section>
+
+        <!-- 5개 도구 카드 리스트 -->
+        <section class="tools-grid">
+            <a href="pages/word-counter.html" class="tool-card">
+                <div class="icon">📝</div>
+                <h3>글자수 & 공백 세기</h3>
+                <p>자소서, 보고서, 블로그용 글자수 및 Byte(공백 포함/제외) 실시간 측정</p>
+            </a>
+
+            <a href="pages/annual-leave.html" class="tool-card">
+                <div class="icon">📅</div>
+                <h3>연차 / 휴가 계산기</h3>
+                <p>근로기준법 제60조 기준 1년 미만 월차 및 가산 연차 일수 계산</p>
+            </a>
+
+            <a href="pages/dday-calculator.html" class="tool-card">
+                <div class="icon">⏰</div>
+                <h3>D-Day & 날짜 계산기</h3>
+                <p>기념일, 시험, 프로젝트 마감일 D-Day 및 지정 날짜 계산</p>
+            </a>
+
+            <a href="pages/severance-pay.html" class="tool-card">
+                <div class="icon">💰</div>
+                <h3>퇴직금 모의 계산기</h3>
+                <p>최근 3개월 통상임금 및 재직일수 기반 예상 퇴직금 자동 산출</p>
+            </a>
+
+            <a href="pages/px-to-rem.html" class="tool-card">
+                <div class="icon">🎨</div>
+                <h3>PX ↔ REM & WebP 변환기</h3>
+                <p>웹 퍼블리싱 단위 변환 및 이미지 용량 절감을 위한 WebP 변환</p>
+            </a>
+        </section>
+
+        <!-- 구글 애드센스 광고 영역 -->
+        <div class="ad-container">
+            <span></span>
+        </div>
+
+        <!-- SEO 소개 포스팅 -->
+        <article class="seo-content">
+            <h2>WorkTools 무료 서비스 소개</h2>
+            <p>
+                WorkTools는 직장인, 대학생, 개발자, 디자이너들이 업무 및 일상생활에서 자주 필요로 하는 필수 도구들을
+                별도의 프로그램을 설치하지 않고 웹 브라우저에서 빠르게 이용할 수 있도록 제공하는 온라인 서비스입니다.
+            </p>
+            <h2>제공 기능 안내</h2>
+            <p>
+                본 사이트에서는 자기소개서 및 보고서 작성에 유용한 글자수 세기, 근로기준법 최신 기준을 적용한 연차 휴가 일수 계산,
+                프로젝트 마감일 및 D-Day 계산, 퇴직금 모의 계산, 그리고 개발자/디자이너를 위한 PX-REM 단위 변환기 및 WebP 이미지 변환기 등
+                실무 중심의 도구를 상시 무료로 제공하고 있습니다.
+            </p>
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 스크립트 연결 -->
+    <script src="js/common.js"></script>
+</body>
+
+</html>
