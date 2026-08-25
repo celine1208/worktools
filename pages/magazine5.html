@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[생산성 가이드] 프로젝트 마감일 및 D-Day 스마트하게 관리하는 방법 | WorkTools 매거진</title>
+    <meta name="description" content="프로젝트 마감일, 수습기간, 시험 D-Day 계산법과 날짜 수 계산 팁. 업무 일정 차질을 줄이고 일정을 정확하게 관리하는 노하우를 공개합니다.">
+    <meta name="keywords" content="D-Day 계산기, 날짜 계산기, 마감일 계산, 디데이 계산, 업무 일정 관리, WorkTools 매거진">
+    <meta name="robots" content="index, follow">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favi/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favi/favicon-16x16.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/magazine.css">
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">WorkTools</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <!-- 드롭다운 메뉴 (유용한 도구) -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownBtn">
+                            유용한 도구 <span class="arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/word-counter.html">글자수 세기</a></li>
+                            <li><a href="/pages/annual-leave.html">연차 계산기</a></li>
+                            <li><a href="/pages/dday-calculator.html">D-Day 계산기</a></li>
+                            <li><a href="/pages/severance-pay.html">퇴직금 계산기</a></li>
+                            <li><a href="/pages/salary-calculator.html">급여/실수령액 계산기</a></li>
+                            <li><a href="/pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pages/magazine.html" style="color: var(--primary); font-weight:bold;">실무 매거진</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <article class="article-container article-content">
+
+            <!-- 아티클 헤더 정보 -->
+            <header class="article-header">
+                <span class="article-badge">VOL. 05 | 생산성/일정 관리</span>
+                <h1 class="article-title">
+                    프로젝트 마감일 착오 방지! D-Day와 날짜 산정의 올바른 계산 기준
+                </h1>
+                <p class="article-subtitle">
+                    당일부터 1일일까, 내일부터 1일일까? 수습기간 종료일부터 프로젝트 릴리즈 D-Day까지 업무에서 자주 쓰이는 날짜 계산 팁을 알아봅니다.
+                </p>
+
+                <div class="article-meta">
+                    <span><strong>에디터</strong> 워크툴스</span>
+                    <span>•</span>
+                    <span><strong>발행일</strong> 2026. 08. 25</span>
+                    <span>•</span>
+                    <span><strong>읽는 시간</strong> 약 3분</span>
+                </div>
+            </header>
+
+            <!-- 메인 커버 이미지 플레이스홀더 -->
+            <div class="img-placeholder main-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[메인 대표 이미지 공간]</strong>
+                <span class="desc">추천 규격: 1200 x 630 px (달력, 스케줄러, 타임라인 관련 일러스트)</span>
+            </div>
+
+            <!-- 본문 시작 -->
+            <p>
+                업무를 진행할 때 일정은 신뢰도와 직결되는 핵심 요소입니다.
+                하지만 '마감일까지 며칠 남았는가?' 또는 '오늘부터 90일 뒤는 정확히 몇월 몇일인가?'를 산정할 때 기준을 잘못 잡으면 전체 프로젝트 일정에 차질이 생기게 됩니다.
+            </p>
+            <p>
+                일상적인 D-Day 계산과 법률/업무상 날짜 산정 방식 간의 차이점을 파악하면 일관성 있게 일정을 관리할 수 있습니다.
+            </p>
+
+            <h2>당일 포함 vs 당일 미포함 (초일 산입/불산입)</h2>
+            <p>
+                날짜를 계산할 때 가장 많이 헷갈리는 부분은 시작하는 날을 1일로 볼 것인가입니다.
+            </p>
+
+            <ul class="article-list-box">
+                <li><strong>초일 불산입 (원칙):</strong> 민법 제157조에 따라 기간을 일, 주, 월, 년으로 정한 때에는 기간의 첫날을 산입하지 않고 다음 날부터 계산합니다.
+                    (예: 오늘 계약 체결 후 3일 뒤 = 오늘을 제외한 3일 후)</li>
+                <li><strong>초일 산입 (예외):</strong> 오전 0시부터 기간이 시작되거나 근로관계, 연령 계산, 수습기간 등 일수의 정확한 충족이 필요한 경우 첫날부터 1일로
+                    포함합니다.</li>
+            </ul>
+
+            <!-- 서브 이미지 플레이스홀더 1 -->
+            <div class="img-placeholder sub-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[서브 이미지 1: 초일 산입 vs 초일 불산입 도식화 그래픽]</strong>
+                <span class="desc">추천 규격: 800 x 400 px</span>
+            </div>
+
+            <h2>실무에서 자주 쓰이는 D-Day 활용 예시</h2>
+            <p>
+                직장 생활과 일상에서 자주 접하는 주요 날짜 산정 유형은 다음과 같습니다.
+            </p>
+
+            <blockquote class="article-quote">
+                <strong>💡 주요 일정별 계산 기준</strong><br>
+                - <strong>프로젝트 마감 D-Day:</strong> 목표 제출일 기준 남은 일수 (D-0, D-1, D-2...)<br>
+                - <strong>신입사원 수습기간 (3개월):</strong> 입사 당일부터 일수 계산 (초일 포함)<br>
+                - <strong>퇴직 전 사직서 제출 (30일 전):</strong> 통보 익일부터 30일 카운트 (초일 미포함)
+            </blockquote>
+
+            <!-- 중간 배너 CTA -->
+            <div class="cta-banner">
+                <h3>복잡한 날짜 계산, 클릭 한 번으로 확인하세요</h3>
+                <p>기준일과 목표일만 선택하면 D-Day 및 정확한 지정 날짜를 자동으로 계산합니다.</p>
+                <a href="dday-calculator.html" class="cta-button">WorkTools D-Day 계산기 실행 ➔</a>
+            </div>
+
+            <h2>일정 차질을 줄이는 스마트한 마감일 관리법</h2>
+            <p>
+                D-Day를 관리할 때 다음 습관을 들이면 더욱 여유로운 일정 진행이 가능합니다.
+            </p>
+
+            <ul class="article-list-box">
+                <li><strong>버퍼(Buffer) 기간 확보:</strong> 최종 마감일 기준 최소 1~2일 전을 '자체 D-Day'로 설정합니다.</li>
+                <li><strong>휴일 및 공휴일 감안:</strong> 단순히 일수(Day)만 계산하지 않고 영업일(Business Day) 기준 일수를 별도 점검합니다.</li>
+            </ul>
+
+            <!-- 서브 이미지 플레이스홀더 2 -->
+            <div class="img-placeholder sub-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[서브 이미지 2: 일정 버퍼 설정 및 타임라인 그래픽]</strong>
+                <span class="desc">추천 규격: 800 x 400 px</span>
+            </div>
+
+            <h2>요약 및 실무 핵심 체크리스트</h2>
+            <ol class="article-checklist">
+                <li>프로젝트 일정 수립 시 초일 포함 여부를 팀원 간 사전에 명확히 협의한다.</li>
+                <li>공휴일과 주말을 고려한 실제 작업 가능 영업일(Business Day)을 계산한다.</li>
+                <li>D-Day 계산기 도구를 활용해 수동 계산 시 발생하는 오류를 예방한다.</li>
+            </ol>
+
+            <!-- 아티클 푸터 태그 및 목록 버튼 -->
+            <footer class="article-footer">
+                <div class="tag-list">
+                    <span class="tag-item">#DDay계산</span>
+                    <span class="tag-item">#날짜계산기</span>
+                    <span class="tag-item">#일정관리</span>
+                    <span class="tag-item">#마감일산정</span>
+                </div>
+                <a href="magazine.html" class="back-link">← 매거진 목록으로 돌아가기</a>
+            </footer>
+
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div style="margin-bottom: 10px;">
+            <a href="about.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">서비스 소개</a> |
+            <a href="terms.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">이용약관</a> |
+            <a href="privacy.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">개인정보처리방침</a>
+        </div>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 스크립트 연결 -->
+    <script src="../js/common.js"></script>
+</body>
+
+</html>

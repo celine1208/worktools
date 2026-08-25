@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>2026 연봉/월급 실수령액 계산기 | WorkTools</title>
+    <meta name="description"
+        content="2026년 4대보험 요율 및 근로소득간이세액표 기준 예상 실수령액 자동 계산기. 연봉 및 월급 기준 국민연금, 건강보험, 고용보험, 소득세 공제액을 한눈에 확인하세요.">
+    <meta name="keywords" content="실수령액 계산기, 연봉 실수령액, 월급 실수령액, 4대보험 계산기, 2026년 실수령액, WorkTools">
+    <meta name="robots" content="index, follow">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favi/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favi/favicon-16x16.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">WorkTools</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownBtn">
+                            유용한 도구 <span class="arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="word-counter.html">글자수 세기</a></li>
+                            <li><a href="annual-leave.html">연차 계산기</a></li>
+                            <li><a href="dday-calculator.html">D-Day 계산기</a></li>
+                            <li><a href="severance-pay.html">퇴직금 계산기</a></li>
+                            <li><a href="salary-calculator.html" class="active">급여/실수령액 계산기</a></li>
+                            <li><a href="px-to-rem.html">PX↔REM/WebP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="magazine.html" style="color: var(--primary); font-weight:bold;">실무 매거진</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <section class="hero" style="margin-bottom: 24px;">
+            <h1>2026 연봉/월급 실수령액 계산기</h1>
+            <p>급여액과 비과세액을 입력하면 4대 보험과 소득세를 제외한 실제 수령액을 산출합니다.</p>
+        </section>
+
+        <section class="tool-container">
+            <!-- 입력 폼 -->
+            <form id="salaryForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label>구분 선택</label>
+                    <div style="display: flex; gap: 12px; margin-top: 6px;">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="calcType" value="annual" checked> 연봉 기준
+                        </label>
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="calcType" value="monthly"> 월급 기준
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="payAmount" id="payLabel">연봉 총액 (원)</label>
+                    <input type="text" id="payAmount" placeholder="예: 40000000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nonTax">월 비과세액 (원) <span
+                            style="font-size:0.8rem; color:var(--text-sub); font-weight:normal;">(식대, 자운전보조금 등 / 기본
+                            200,000원)</span></label>
+                    <input type="text" id="nonTax" value="200,000" placeholder="200000">
+                </div>
+
+                <div class="form-group">
+                    <label for="dependents">부양가족 수 (본인 포함)</label>
+                    <select id="dependents">
+                        <option value="1" selected>1명 (본인만)</option>
+                        <option value="2">2명</option>
+                        <option value="3">3명</option>
+                        <option value="4">4명 이상</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn-primary" id="calcBtn">실수령액 계산하기</button>
+            </form>
+
+            <!-- 결과 출력 영역 -->
+            <div class="result-box" id="resultBox">
+                <div
+                    style="text-align: center; margin-bottom: 20px; border-bottom: 1px solid #bfdbfe; padding-bottom: 15px;">
+                    <span style="font-size: 0.95rem; color: var(--text-sub);">예상 월 실수령액</span>
+                    <h2 id="finalAmount" style="font-size: 2rem; color: var(--primary); margin-top: 4px;">0 원</h2>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>월 과세 대상액:</span>
+                        <strong id="taxableMonthly">0 원</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; color: #dc2626;">
+                        <span>공제합계 총액:</span>
+                        <strong id="totalDeduction">0 원</strong>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px dashed #bfdbfe; margin: 8px 0;">
+
+                    <!-- 세부 공제 내역 -->
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>ㆍ 국민연금 (4.5%):</span>
+                        <span id="pension">0 원</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>ㆍ 건강보험 (3.545%):</span>
+                        <span id="health">0 원</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>ㆍ 장기요양보험 (건강보험의 12.95%):</span>
+                        <span id="care">0 원</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>ㆍ 고용보험 (0.9%):</span>
+                        <span id="employment">0 원</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>ㆍ 근로소득세 (간이세액 추정):</span>
+                        <span id="incomeTax">0 원</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>ㆍ 지방소득세 (소득세의 10%):</span>
+                        <span id="localTax">0 원</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO/정보 콘텐츠 -->
+        <article class="seo-content">
+            <h2>2026년 실수령액 산정 기준</h2>
+            <p>
+                본 계산기는 2026년 기준 4대 보험 요율(국민연금 4.5%, 건강보험 3.545%, 장기요양보험 건강보험료의 12.95%, 고용보험 0.9%) 및 국세청 근로소득 간이세액표 기본
+                구간을 반영한 모의 계산 결과입니다.
+            </p>
+            <p>
+                비과세 항목(월 20만 원 식대 등)과 부양가족 수에 따라 실제 상여금, 수당, 사내 정책에 의해 원천징수되는 최종 액수는 차이가 발생할 수 있습니다.
+            </p>
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div style="margin-bottom: 10px;">
+            <a href="about.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">서비스 소개</a> |
+            <a href="terms.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">이용약관</a> |
+            <a href="privacy.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">개인정보처리방침</a>
+        </div>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 스크립트 -->
+    <script src="../js/common.js"></script>
+
+    <!-- 페이지 전용 로직 스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const payAmountInput = document.getElementById('payAmount');
+            const nonTaxInput = document.getElementById('nonTax');
+            const payLabel = document.getElementById('payLabel');
+            const calcBtn = document.getElementById('calcBtn');
+            const resultBox = document.getElementById('resultBox');
+            const calcTypeRadios = document.getElementsByName('calcType');
+
+            // 천단위 콤마 포맷터
+            const formatNum = (num) => Math.round(num).toLocaleString('ko-KR');
+            // 숫자가 아닌 문자(콤마 등)를 모두 제거하고 숫자로 변환 (정규식 수정)
+            const unformatNum = (str) => Number(str.replace(/[^0-9]/g, '')) || 0;
+
+            // 숫자 입력 시 자동으로 콤마 추가
+            [payAmountInput, nonTaxInput].forEach(input => {
+                input.addEventListener('input', (e) => {
+                    let val = e.target.value.replace(/[^0-9]/g, '');
+                    if (val) e.target.value = Number(val).toLocaleString('ko-KR');
+                    else e.target.value = '';
+                });
+            });
+
+            // 연봉 / 월급 라벨 토글
+            calcTypeRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.value === 'annual') {
+                        payLabel.textContent = '연봉 총액 (원)';
+                        payAmountInput.placeholder = '예: 40,000,000';
+                    } else {
+                        payLabel.textContent = '월급 총액 (원)';
+                        payAmountInput.placeholder = '예: 3,300,000';
+                    }
+                });
+            });
+
+            // 계산 버튼 클릭 이벤트
+            calcBtn.addEventListener('click', () => {
+                const rawPay = unformatNum(payAmountInput.value);
+                const nonTax = unformatNum(nonTaxInput.value);
+                const isAnnual = document.querySelector('input[name="calcType"]:checked').value === 'annual';
+                const dependents = Number(document.getElementById('dependents').value);
+
+                if (!rawPay) {
+                    alert('금액을 입력해주세요.');
+                    payAmountInput.focus();
+                    return;
+                }
+
+                // 1. 월 과세 대상액 산출
+                const grossMonthly = isAnnual ? (rawPay / 12) : rawPay;
+                const taxableMonthly = Math.max(0, grossMonthly - nonTax);
+
+                // 2. 4대보험 계산
+                const pension = Math.min(taxableMonthly, 5900000) * 0.045;
+                const health = taxableMonthly * 0.03545;
+                const care = health * 0.1295;
+                const employment = taxableMonthly * 0.009;
+
+                // 3. 근로소득세 및 지방소득세 계산
+                let incomeTax = 0;
+                if (taxableMonthly > 1000000) {
+                    let baseTaxable = taxableMonthly - 1000000;
+                    if (baseTaxable <= 2000000) incomeTax = baseTaxable * 0.06;
+                    else if (baseTaxable <= 4000000) incomeTax = 120000 + (baseTaxable - 2000000) * 0.15;
+                    else incomeTax = 420000 + (baseTaxable - 4000000) * 0.24;
+
+                    if (dependents > 1) {
+                        incomeTax = incomeTax * (1 - (dependents - 1) * 0.08);
+                    }
+                }
+                incomeTax = Math.max(0, incomeTax);
+                const localTax = incomeTax * 0.1;
+
+                // 총 공제액 및 실수령액
+                const totalDeduction = pension + health + care + employment + incomeTax + localTax;
+                const finalAmount = grossMonthly - totalDeduction;
+
+                // 결과 화면 업데이트
+                document.getElementById('taxableMonthly').textContent = formatNum(taxableMonthly) + ' 원';
+                document.getElementById('totalDeduction').textContent = formatNum(totalDeduction) + ' 원';
+                document.getElementById('pension').textContent = formatNum(pension) + ' 원';
+                document.getElementById('health').textContent = formatNum(health) + ' 원';
+                document.getElementById('care').textContent = formatNum(care) + ' 원';
+                document.getElementById('employment').textContent = formatNum(employment) + ' 원';
+                document.getElementById('incomeTax').textContent = formatNum(incomeTax) + ' 원';
+                document.getElementById('localTax').textContent = formatNum(localTax) + ' 원';
+                document.getElementById('finalAmount').textContent = formatNum(finalAmount) + ' 원';
+
+                resultBox.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

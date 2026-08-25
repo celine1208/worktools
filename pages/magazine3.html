@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[웹 퍼블리싱] PX, REM, EM 차이점과 반응형 웹 단위 사용 가이드 | WorkTools 매거진</title>
+    <meta name="description"
+        content="웹 디자인 및 프론트엔드 실무에서 필수적인 PX, REM, EM 단위의 개념과 차이점. 접근성과 반응형 디자인을 위한 효율적인 단위 선택 팁을 공유합니다.">
+    <meta name="keywords" content="PX REM 변환, REM EM 차이, 반응형 웹 디자인, CSS 단위, 퍼블리싱 가이드, WorkTools 매거진">
+    <meta name="robots" content="index, follow">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favi/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favi/favicon-16x16.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/magazine.css">
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">WorkTools</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <!-- 드롭다운 메뉴 (유용한 도구) -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownBtn">
+                            유용한 도구 <span class="arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/word-counter.html">글자수 세기</a></li>
+                            <li><a href="/pages/annual-leave.html">연차 계산기</a></li>
+                            <li><a href="/pages/dday-calculator.html">D-Day 계산기</a></li>
+                            <li><a href="/pages/severance-pay.html">퇴직금 계산기</a></li>
+                            <li><a href="/pages/salary-calculator.html">급여/실수령액 계산기</a></li>
+                            <li><a href="/pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pages/magazine.html" style="color: var(--primary); font-weight:bold;">실무 매거진</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <article class="article-container article-content">
+
+            <!-- 아티클 헤더 정보 -->
+            <header class="article-header">
+                <span class="article-badge">VOL. 03 | 웹 개발/디자인</span>
+                <h1 class="article-title">
+                    왜 PX 대신 REM을 쓸까? 반응형 웹을 만드는 핵심 CSS 단위 완벽 정리
+                </h1>
+                <p class="article-subtitle">
+                    고정 단위 PX와 상대 단위 REM, EM의 차이점을 파악하고 웹 접근성(A11y)과 반응형 디자인을 고도화하는 퍼블리싱 노하우를 알아봅니다.
+                </p>
+
+                <div class="article-meta">
+                    <span><strong>에디터</strong> 워크툴스</span>
+                    <span>•</span>
+                    <span><strong>발행일</strong> 2026. 08. 25</span>
+                    <span>•</span>
+                    <span><strong>읽는 시간</strong> 약 3분</span>
+                </div>
+            </header>
+
+            <!-- 메인 커버 이미지 플레이스홀더 -->
+            <div class="img-placeholder main-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[메인 대표 이미지 공간]</strong>
+                <span class="desc">추천 규격: 1200 x 630 px (CSS 코드, 반응형 디바이스 관련 일러스트)</span>
+            </div>
+
+            <!-- 본문 시작 -->
+            <p>
+                웹 퍼블리싱이나 UI 디자인을 시작할 때 가장 흔히 다루는 단위는 <strong>픽셀(PX)</strong>입니다.
+                직관적이고 정확한 크기를 지정하기 쉬워 널리 쓰이지만, 화면 크기와 사용자의 브라우저 설정이 제각각인 현대의 웹 환경에서는 PX만으로 한계에 부딪히게 됩니다.
+            </p>
+            <p>
+                모바일, 태블릿, PC 등 다양한 해상도에 유연하게 대응하고 웹 접근성을 준수하기 위해서는 상대 단위인 REM과 EM을 적극적으로 활용해야 합니다.
+            </p>
+
+            <h2>절대 단위 PX vs 상대 단위 REM / EM</h2>
+            <p>
+                단위의 선택 기준은 '무엇을 기준으로 크기가 바뀌는가'에 달려 있습니다.
+            </p>
+
+            <ul class="article-list-box">
+                <li><strong>PX (Pixel):</strong> 디스플레이의 화소를 기준으로 하는 <strong>고정 단위</strong>. 브라우저 설정이나 부모 요소에 영향받지 않음.
+                </li>
+                <li><strong>REM (Root EM):</strong> 최상위 요소(html)의 폰트 크기를 기준으로 하는 <strong>상대 단위</strong>. (기본 16px =
+                    1rem)</li>
+                <li><strong>EM:</strong> 자기 자신의 폰트 크기나 상위(부모) 요소의 폰트 크기를 기준으로 변하는 <strong>상대 단위</strong>.</li>
+            </ul>
+
+            <!-- 서브 이미지 플레이스홀더 1 -->
+            <div class="img-placeholder sub-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[서브 이미지 1: PX vs REM 상속 구조 비교 그래픽]</strong>
+                <span class="desc">추천 규격: 800 x 400 px</span>
+            </div>
+
+            <h2>왜 PX 대신 REM을 사용해야 할까?</h2>
+            <p>
+                가장 큰 이유는 웹 접근성(Accessibility)과 웹 글꼴 크기 설정 대응입니다.
+            </p>
+            <p>
+                시력이 좋지 않은 사용자는 브라우저의 기본 폰트 크기를 20px 이상으로 키워서 웹사이트를 이용하곤 합니다. 이때 폰트 크기를 `px`로 고정해 두면 사용자가 설정을 변경해도 글자 크기가
+                바뀌지 않아 불편을 겪게 됩니다.
+            </p>
+            <p>
+                반면 `rem` 단위를 사용하면 브라우저의 기본 글자 크기에 맞춰 본문 텍스트, 간격, 여백 등이 유연하게 동시 조절됩니다.
+            </p>
+
+            <blockquote class="article-quote">
+                <strong>쉽게 외우는 계산법 (기본 html font-size = 16px 기준)</strong><br>
+                16px = 1rem | 24px = 1.5rem | 32px = 2rem<br>
+                <u><strong>계산 공식:</strong> 원하는 PX ÷ 16 = REM 값</u>
+            </blockquote>
+
+            <!-- 중간 배너 CTA -->
+            <div class="cta-banner">
+                <h3>복잡한 PX↔REM 계산, 버튼 하나로 변환하세요</h3>
+                <p>원하는 PX 값을 입력하면 즉시 REM 코드로 자동 변환되는 계산 도구를 제공합니다.</p>
+                <a href="px-to-rem.html" class="cta-button">WorkTools PX↔REM 변환기 실행 ➔</a>
+            </div>
+
+            <h2>실무에서는 언제 어떤 단위를 써야 할까?</h2>
+            <p>
+                모든 요소에 REM을 써야 하는 것은 아닙니다. 다음과 같이 역할에 맞게 혼용하는 것이 권장됩니다.
+            </p>
+
+            <ul class="article-list-box">
+                <li><strong>REM 추천:</strong> 전체 폰트 크기(font-size), 레이아웃 패딩/마진, 섹션 간격</li>
+                <li><strong>EM 추천:</strong> 버튼 내부 간격(Padding), 텍스트 크기에 따라 비율이 같이 움직여야 하는 아이콘 크기</li>
+                <li><strong>PX 추천:</strong> 1px 테두리(border), 박스 그림자(box-shadow) 등 고정되어야 하는 최소 선 두께</li>
+            </ul>
+
+            <!-- 서브 이미지 플레이스홀더 2 -->
+            <div class="img-placeholder sub-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[서브 이미지 2: 실무 권장 단위 가이드 인포그래픽]</strong>
+                <span class="desc">추천 규격: 800 x 400 px</span>
+            </div>
+
+            <h2>요약 및 실무 핵심 체크리스트</h2>
+            <ol class="article-checklist">
+                <li>텍스트 크기와 주요 레이아웃 여백은 기본적으로 `rem` 단위를 사용한다.</li>
+                <li>버튼처럼 요소 내부 폰트 크기와 여백이 동기화되어야 할 때는 `em`을 고려한다.</li>
+                <li>수식 계산이 번거로울 때는 변환기 도구나 CSS Preprocessor(Sass, Tailwind 등)를 활용한다.</li>
+            </ol>
+
+            <!-- 아티클 푸터 태그 및 목록 버튼 -->
+            <footer class="article-footer">
+                <div class="tag-list">
+                    <span class="tag-item">#반응형웹</span>
+                    <span class="tag-item">#PXtoREM</span>
+                    <span class="tag-item">#CSS단위</span>
+                    <span class="tag-item">#웹퍼블리싱</span>
+                </div>
+                <a href="magazine.html" class="back-link">← 매거진 목록으로 돌아가기</a>
+            </footer>
+
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div style="margin-bottom: 10px;">
+            <a href="about.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">서비스 소개</a> |
+            <a href="terms.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">이용약관</a> |
+            <a href="privacy.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">개인정보처리방침</a>
+        </div>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 스크립트 연결 -->
+    <script src="../js/common.js"></script>
+</body>
+
+</html>

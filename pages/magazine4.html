@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[커리어 가이드] 자소서·보고서 글자수 세기 및 Byte 계산법 완벽 가이드 | WorkTools 매거진</title>
+    <meta name="description"
+        content="자기소개서나 보고서 작성 시 필수 체크 사항! 공백 포함/제외 글자수 구분과 한글, 영문 Byte 계산 차이점 및 서류 합격을 부르는 작성 팁을 공유합니다.">
+    <meta name="keywords" content="글자수 세기, 자소서 글자수, Byte 계산, 공백 포함 글자수, 공백 제외 글자수, WorkTools 매거진">
+    <meta name="robots" content="index, follow">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favi/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favi/favicon-16x16.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/magazine.css">
+</head>
+
+<body>
+
+    <!-- 공통 네비게이션 헤더 -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">WorkTools</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <!-- 드롭다운 메뉴 (유용한 도구) -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownBtn">
+                            유용한 도구 <span class="arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/word-counter.html">글자수 세기</a></li>
+                            <li><a href="/pages/annual-leave.html">연차 계산기</a></li>
+                            <li><a href="/pages/dday-calculator.html">D-Day 계산기</a></li>
+                            <li><a href="/pages/severance-pay.html">퇴직금 계산기</a></li>
+                            <li><a href="/pages/salary-calculator.html">급여/실수령액 계산기</a></li>
+                            <li><a href="/pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pages/magazine.html" style="color: var(--primary); font-weight:bold;">실무 매거진</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <article class="article-container article-content">
+
+            <!-- 아티클 헤더 정보 -->
+            <header class="article-header">
+                <span class="article-badge">VOL. 04 | 커리어/작성 가이드</span>
+                <h1 class="article-title">
+                    자소서 글자수 초과 방지! 공백 포함 vs 제외 및 Byte 계산 기준 완벽 정리
+                </h1>
+                <p class="article-subtitle">
+                    기업마다 다른 글자수 제한 규정 때문에 당황하셨나요? 한글·영문·공백별 Byte 계산 방식과 가독성을 높이는 문장 분량 조절 팁을 알려드립니다.
+                </p>
+
+                <div class="article-meta">
+                    <span><strong>에디터</strong> 워크툴스</span>
+                    <span>•</span>
+                    <span><strong>발행일</strong> 2026. 08. 25</span>
+                    <span>•</span>
+                    <span><strong>읽는 시간</strong> 약 3분</span>
+                </div>
+            </header>
+
+            <!-- 메인 커버 이미지 플레이스홀더 -->
+            <div class="img-placeholder main-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[메인 대표 이미지 공간]</strong>
+                <span class="desc">추천 규격: 1200 x 630 px (노트북 작업, 자소서/보고서 검수 일러스트)</span>
+            </div>
+
+            <!-- 본문 시작 -->
+            <p>
+                취업 자기소개서나 공공기관 보고서, 마케팅 문구를 작성할 때 가장 신경 쓰이는 제약 중 하나가 바로 '분량 제한'입니다.
+                분량이 미달하면 성의가 없어 보이고, 제한 기준을 넘기면 채용 시스템에서 입력이 잘리는 불상사가 발생할 수 있습니다.
+            </p>
+            <p>
+                특히 '공백 포함/제외 글자수'와 'Byte(바이트) 기준'을 올바르게 구별하지 못해 마지막 순간에 문장을 허겁지겁 줄이는 경우가 많습니다.
+            </p>
+
+            <h2>공백 포함 글자수 vs 공백 제외 글자수</h2>
+            <p>
+                대부분의 채용 플랫폼이나 제출 양식은 공백 포함 글자수를 기준으로 제시합니다.
+            </p>
+
+            <ul class="article-list-box">
+                <li><strong>공백 포함:</strong> 띄어쓰기, 줄바꿈(엔터), 특수문자 등을 모두 하나의 글자로 계산합니다. (실제 화면 인쇄 분량과 유사)</li>
+                <li><strong>공백 제외:</strong> 순수 텍스트(한글, 영문, 숫자)만을 계산하며, 문서의 실제 정보량을 측정할 때 사용합니다.</li>
+            </ul>
+
+            <!-- 서브 이미지 플레이스홀더 1 -->
+            <div class="img-placeholder sub-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[서브 이미지 1: 글자수 계산 및 공백 처리 도식화 이미지]</strong>
+                <span class="desc">추천 규격: 800 x 400 px</span>
+            </div>
+
+            <h2>한글과 영문은 왜 Byte 수가 다를까?</h2>
+            <p>
+                대기업 및 공공기관 채용 사이트에서는 글자수가 아닌 Byte 단위로 제한을 두는 경우가 많습니다. 이때 문자의 인코딩 방식에 따라 차이가 발생합니다.
+            </p>
+
+            <blockquote class="article-quote">
+                <strong>표준 텍스트 Byte 계산 기준 (EUC-KR / 일반 채용폼 기준)</strong><br>
+                - <strong>한글 / 한자:</strong> 1자당 <u>2 Byte</u> 또는 <u>3 Byte</u> (EUC-KR은 2Byte, UTF-8은 3Byte)<br>
+                - <strong>영문 / 숫자 / 공백:</strong> 1자당 <u>1 Byte</u><br>
+                - <strong>줄바꿈(Enter):</strong> 1회당 <u>2 Byte</u> (CR+LF)
+            </blockquote>
+
+            <p>
+                따라서 1,000 Byte 제한인 항목이라면, 한글로만 작성 시 약 330~500자 내외로 채워야 하므로 반드시 미리 측정해보아야 합니다.
+            </p>
+
+            <!-- 중간 배너 CTA -->
+            <div class="cta-banner">
+                <h3>글자수와 Byte를 실시간으로 측정하세요</h3>
+                <p>텍스트를 입력하면 공백 포함/제외 글자수와 Byte 단위를 동시에 확인합니다.</p>
+                <a href="word-counter.html" class="cta-button">WorkTools 글자수 세기 실행 ➔</a>
+            </div>
+
+            <h2>서류 합격을 부르는 분량 조절 팁</h2>
+            <p>
+                채용 담당자에게 좋은 인상을 남기기 위해 분량을 조절할 때는 다음 3가지를 기억하세요.
+            </p>
+
+            <ul class="article-list-box">
+                <li><strong>목표치 채우기:</strong> 제시된 제한 분량의 85% ~ 95% 수준을 채우는 것이 가장 이상적입니다.</li>
+                <li><strong>불필요한 미사여구 제거:</strong> 글자수가 넘칠 경우 '매우', '대단히', '생각합니다'와 같은 보조 단어부터 우선 다듬습니다.</li>
+                <li><strong>줄바꿈(Enter) 최소화:</strong> 의미 없는 엔터 남발은 Byte 용량을 쓸데없이 다량 소비하게 만듭니다.</li>
+            </ul>
+
+            <!-- 서브 이미지 플레이스홀더 2 -->
+            <div class="img-placeholder sub-cover">
+                <span class="icon">🖼️</span>
+                <strong class="title">[서브 이미지 2: 자소서 검수 및 분량 조절 인포그래픽]</strong>
+                <span class="desc">추천 규격: 800 x 400 px</span>
+            </div>
+
+            <h2>요약 및 제출 전 체크리스트</h2>
+            <ol class="article-checklist">
+                <li>제출하려는 시스템의 기준이 '글자수'인지 'Byte'인지 확인한다.</li>
+                <li>공백 포함 기준으로 제한 용량의 85% 이상을 달성했는지 체크한다.</li>
+                <li>맞춤법 검사기 및 글자수 세기 도구로 오탈자와 용량 초과 여부를 최종 점검한다.</li>
+            </ol>
+
+            <!-- 아티클 푸터 태그 및 목록 버튼 -->
+            <footer class="article-footer">
+                <div class="tag-list">
+                    <span class="tag-item">#글자수세기</span>
+                    <span class="tag-item">#자소서글자수</span>
+                    <span class="tag-item">#Byte계산</span>
+                    <span class="tag-item">#취업팁</span>
+                </div>
+                <a href="magazine.html" class="back-link">← 매거진 목록으로 돌아가기</a>
+            </footer>
+
+        </article>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div style="margin-bottom: 10px;">
+            <a href="about.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">서비스 소개</a> |
+            <a href="terms.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">이용약관</a> |
+            <a href="privacy.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">개인정보처리방침</a>
+        </div>
+        <p>© 2026 WorkTools. All rights reserved.</p>
+    </footer>
+
+    <!-- 공통 스크립트 연결 -->
+    <script src="../js/common.js"></script>
+</body>
+
+</html>

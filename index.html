@@ -6,40 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
     <title>WorkTools | 직장인 & 개발자를 위한 웹 도구 모음</title>
-    <meta name="description" content="글자수 세기, 연차 계산기, D-Day 계산기, 퇴직금 모의 계산기, PX/REM 변환기 등 업무 효율을 높여주는 무료 웹 도구 모음 사이트">
-    <meta name="keywords" content="글자수 세기, 연차 계산기, D-Day 계산기, 퇴직금 계산기, PX REM 변환기, 직장인 웹 도구">
+    <meta name="description"
+        content="글자수 세기, 연차 계산기, D-Day 계산기, 퇴직금 계산기, 급여/실수령액 계산기, PX/REM 변환기 등 업무 효율을 높여주는 무료 웹 도구 모음 및 실무 가이드 포털">
+    <meta name="keywords" content="글자수 세기, 연차 계산기, D-Day 계산기, 퇴직금 계산기, 실수령액 계산기, PX REM 변환기, 직장인 웹 도구, 직장인 꿀팁">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://worktools.kr/">
 
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/favi/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/favi/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/favi/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/favi/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/favi/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/favi/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/favi/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/favi/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favi/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favi/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favi/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favi/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favi/favicon-16x16.png">
-    <link rel="manifest" href="/favi/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favi/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="WorkTools | 직장인 & 개발자를 위한 무료 웹 도구 모음">
     <meta property="og:description" content="별도 설치 없이 웹 브라우저에서 바로 사용하는 무료 실무 계산기 및 변환기 플랫폼">
     <meta property="og:image" content="https://worktools.kr/assets/ogimage.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="WorkTools - 직장인 무료 웹 도구 모음 대표 이미지">
 
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-4099202424422190">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4099202424422190"
+        crossorigin="anonymous"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
@@ -53,11 +40,21 @@
             <a href="index.html" class="logo">WorkTools</a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="pages/word-counter.html">글자수 세기</a></li>
-                    <li><a href="pages/annual-leave.html">연차 계산기</a></li>
-                    <li><a href="pages/dday-calculator.html">D-Day 계산기</a></li>
-                    <li><a href="pages/severance-pay.html">퇴직금 계산기</a></li>
-                    <li><a href="pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                    <!-- 드롭다운 메뉴 (유용한 도구) -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownBtn">
+                            유용한 도구 <span class="arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/word-counter.html">글자수 세기</a></li>
+                            <li><a href="pages/annual-leave.html">연차 계산기</a></li>
+                            <li><a href="pages/dday-calculator.html">D-Day 계산기</a></li>
+                            <li><a href="pages/severance-pay.html">퇴직금 계산기</a></li>
+                            <li><a href="pages/salary-calculator.html">급여/실수령액 계산기</a></li>
+                            <li><a href="pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pages/magazine.html" style="color: var(--primary); font-weight:bold;">실무 매거진</a></li>
                 </ul>
             </nav>
             <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
@@ -72,7 +69,7 @@
             <p>별도 설치 없이 웹 브라우저에서 바로 사용하는 <br class="mobile-br"> 무료 실무 계산기 플랫폼</p>
         </section>
 
-        <!-- 5개 도구 카드 리스트 -->
+        <!-- 6개 도구 카드 리스트 -->
         <section class="tools-grid">
             <a href="pages/word-counter.html" class="tool-card">
                 <div class="icon">📝</div>
@@ -98,6 +95,12 @@
                 <p>최근 3개월 통상임금 및 재직일수 기반 예상 퇴직금 자동 산출</p>
             </a>
 
+            <a href="pages/salary-calculator.html" class="tool-card">
+                <div class="icon">💵</div>
+                <h3>급여 / 실수령액 계산기</h3>
+                <p>2026년 4대보험 요율 및 소득세 공제액 기반 월 예상 실수령액 계산</p>
+            </a>
+
             <a href="pages/px-to-rem.html" class="tool-card">
                 <div class="icon">🎨</div>
                 <h3>PX ↔ REM & WebP 변환기</h3>
@@ -107,12 +110,80 @@
 
         <!-- 구글 애드센스 광고 영역 -->
         <div class="ad-container">
-            <span>
-                <script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4099202424422190"
-                    crossorigin="anonymous"></script>
-            </span>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4099202424422190" data-ad-slot="auto"
+                data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
+
+        <!-- 매거진 미리보기 섹션 -->
+        <section style="margin-bottom: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h2 style="font-size: 1.3rem; color: var(--text-main);">최신 실무 매거진</h2>
+                <a href="pages/magazine.html"
+                    style="color: var(--primary); font-size: 0.9rem; text-decoration: none; font-weight: 600;">전체보기
+                    ➔</a>
+            </div>
+
+            <div class="tools-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                <!-- VOL 01 -->
+                <a href="magazine1.html" class="tool-card">
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: bold; margin-bottom: 6px;">노무
+                        가이드</span>
+                    <h3>입사 1년 미만 신입사원 연차 발생 기준 총정리</h3>
+                    <p>1개월 개근 시 월차 발생 공식부터 2년 차 15개 부여 규칙까지 깔끔하게 정리해 드립니다.</p>
+                    <span style="font-size: 0.8rem; color: var(--text-sub); margin-top: 12px;">2026. 08. 25</span>
+                </a>
+
+                <!-- VOL 02 -->
+                <a href="magazine2.html" class="tool-card">
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: bold; margin-bottom: 6px;">금융/노무
+                        가이드</span>
+                    <h3>퇴직금 계산 시 평균임금과 통상임금 차이점 완벽 비교</h3>
+                    <p>상여금 포함 여부부터 평균임금과 통상임금 중 어떤 금액 기준으로 산정되는지 알아봅니다.</p>
+                    <span style="font-size: 0.8rem; color: var(--text-sub); margin-top: 12px;">2026. 08. 25</span>
+                </a>
+
+                <!-- VOL 03 -->
+                <a href="magazine3.html" class="tool-card">
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: bold; margin-bottom: 6px;">웹
+                        개발/디자인</span>
+                    <h3>왜 PX 대신 REM을 쓸까? 반응형 웹을 만드는 핵심 CSS 단위 정리</h3>
+                    <p>PX, REM, EM 단위 차이점 파악하고 반응형 디자인과 접근성을 동시에 높이는 방법을 소개합니다.</p>
+                    <span style="font-size: 0.8rem; color: var(--text-sub); margin-top: 12px;">2026. 08. 25</span>
+                </a>
+
+                <!-- VOL 04 -->
+                <a href="magazine4.html" class="tool-card">
+                    <span
+                        style="font-size: 0.8rem; color: var(--primary); font-weight: bold; margin-bottom: 6px;">커리어/작성
+                        가이드</span>
+                    <h3>자소서 글자수 초과 방지! 공백 포함 vs 제외 및 Byte 계산 기준</h3>
+                    <p>기업별 공백 포함/제외 및 한글·영문 Byte 계산 방식과 가독성을 높이는 작성 팁을 알아봅니다.</p>
+                    <span style="font-size: 0.8rem; color: var(--text-sub); margin-top: 12px;">2026. 08. 25</span>
+                </a>
+
+                <!-- VOL 05 -->
+                <a href="magazine5.html" class="tool-card">
+                    <span
+                        style="font-size: 0.8rem; color: var(--primary); font-weight: bold; margin-bottom: 6px;">생산성/일정
+                        관리</span>
+                    <h3>프로젝트 마감일 착오 방지! D-Day와 날짜 산정의 올바른 기준</h3>
+                    <p>초일 산입/불산입 원칙부터 스마트하게 일정에 버퍼를 두고 산정하는 노하우를 소개합니다.</p>
+                    <span style="font-size: 0.8rem; color: var(--text-sub); margin-top: 12px;">2026. 08. 25</span>
+                </a>
+
+                <!-- VOL 06 -->
+                <a href="magazine6.html" class="tool-card">
+                    <span style="font-size: 0.8rem; color: var(--primary); font-weight: bold; margin-bottom: 6px;">노무/금융
+                        가이드</span>
+                    <h3>내 연봉의 실제 통장 수령액은 얼마일까? 4대 보험과 세금 완벽 분석</h3>
+                    <p>국민연금, 건강보험 공제 비율부터 실수령액을 높여주는 비과세 항목 팁을 소개합니다.</p>
+                    <span style="font-size: 0.8rem; color: var(--text-sub); margin-top: 12px;">2026. 08. 25</span>
+                </a>
+            </div>
+        </section>
 
         <!-- SEO 소개 포스팅 -->
         <article class="seo-content">
@@ -121,21 +192,21 @@
                 WorkTools는 직장인, 대학생, 개발자, 디자이너들이 업무 및 일상생활에서 자주 필요로 하는 필수 도구들을
                 별도의 프로그램을 설치하지 않고 웹 브라우저에서 빠르게 이용할 수 있도록 제공하는 온라인 서비스입니다.
             </p>
-            <h2>제공 기능 안내</h2>
-            <p>
-                본 사이트에서는 자기소개서 및 보고서 작성에 유용한 글자수 세기, 근로기준법 최신 기준을 적용한 연차 휴가 일수 계산,
-                프로젝트 마감일 및 D-Day 계산, 퇴직금 모의 계산, 그리고 개발자/디자이너를 위한 PX-REM 단위 변환기 및 WebP 이미지 변환기 등
-                실무 중심의 도구를 상시 무료로 제공하고 있습니다.
-            </p>
         </article>
     </main>
 
     <!-- 푸터 -->
     <footer>
+        <div style="margin-bottom: 10px;">
+            <a href="pages/about.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">서비스 소개</a>
+            |
+            <a href="pages/terms.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">이용약관</a> |
+            <a href="pages/privacy.html"
+                style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">개인정보처리방침</a>
+        </div>
         <p>© 2026 WorkTools. All rights reserved.</p>
     </footer>
 
-    <!-- 공통 스크립트 연결 -->
     <script src="js/common.js"></script>
 </body>
 

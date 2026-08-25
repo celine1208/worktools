@@ -72,6 +72,10 @@ body {
     list-style: none;
 }
 
+.nav-links li {
+    position: relative;
+}
+
 .nav-links a {
     text-decoration: none;
     color: var(--text-sub);
@@ -83,6 +87,86 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--primary);
+}
+
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.dropdown-toggle .arrow {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 170px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 8px 0;
+    z-index: 200;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--accent-bg);
+    color: var(--primary);
+}
+
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-toggle .arrow {
+        transform: rotate(180deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background-color: #f8fafc; /* 내부에 살짝 어두운 배경색 부여 */
+        border-radius: 6px;
+        padding: 4px 0;
+        margin-top: 6px;
+        margin-left: 10px;
+    }
+
+    /* 모바일에서는 클릭 시 .open 클래스로 토글 */
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown.open .dropdown-toggle .arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        border-bottom: none;
+    }
 }
 
 /* 메인 컨테이너 */

@@ -1,0 +1,273 @@
+/* ==========================================================================
+    WorkTools Magazine Style (모든 매거진 아티클 공통 적용)
+   ========================================================================== */
+
+/* 아티클 레이아웃 컨테이너 */
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* 헤더 정보 */
+.article-header {
+    margin-bottom: 24px;
+}
+
+.article-badge {
+    display: inline-block;
+    background-color: var(--accent-bg, #f0f7ff);
+    color: var(--primary, #2563eb);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.article-title {
+    font-size: 2.1rem;
+    line-height: 1.35;
+    margin-bottom: 14px;
+    color: var(--text-main);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    word-break: keep-all;
+}
+
+.article-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-sub);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+/* 본문 영역 */
+.article-content p {
+    font-size: 1.05rem;
+    word-break: keep-all;
+    margin-bottom: 16px;
+}
+
+.article-content h2 {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--primary, #2563eb);
+    padding-left: 12px;
+    color: var(--text-main);
+    word-break: keep-all;
+}
+
+.article-list-box {
+    background: #f8fafc;
+    padding: 20px 20px 20px 36px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #e2e8f0);
+    margin: 20px 0;
+}
+
+.article-list-box li {
+    margin-bottom: 8px;
+}
+
+.article-list-box li:last-child {
+    margin-bottom: 0;
+}
+
+.article-quote {
+    background-color: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+    word-break: keep-all;
+}
+
+.article-quote strong {
+    color: #1e40af;
+    font-size: 1rem;
+}
+
+.article-checklist {
+    line-height: 1.9;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+/* 이미지 플레이스홀더 반응형 높이 */
+.img-placeholder {
+    width: 100%;
+    background-color: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    margin: 30px 0;
+    text-align: center;
+    padding: 20px 16px;
+    box-sizing: border-box;
+}
+
+.img-placeholder.main-cover {
+    height: 360px;
+    border-radius: 12px;
+    background-color: #e2e8f0;
+    margin-bottom: 36px;
+}
+
+.img-placeholder.sub-cover {
+    height: 240px;
+}
+
+.img-placeholder .icon {
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.img-placeholder .title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    word-break: keep-all;
+}
+
+.img-placeholder .desc {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    opacity: 0.8;
+}
+
+/* CTA 배너 카드 */
+.cta-banner {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin: 36px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.cta-banner h3 {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    word-break: keep-all;
+}
+
+.cta-banner p {
+    font-size: 0.92rem;
+    opacity: 0.95;
+    margin-bottom: 16px;
+    color: #ffffff;
+    word-break: keep-all;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #2563eb;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #f8fafc;
+}
+
+/* 푸터 태그 및 이동 링크 */
+.article-footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #e2e8f0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tag-list {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag-item {
+    background-color: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.back-link {
+    color: var(--primary, #2563eb);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+    반응형 미디어 쿼리 (Mobile & Tablet Optimization)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.6rem;
+    }
+
+    .article-subtitle {
+        font-size: 1rem;
+    }
+
+    .article-content h2 {
+        font-size: 1.3rem;
+        margin-top: 32px;
+    }
+
+    .img-placeholder.main-cover {
+        height: 240px;
+    }
+
+    .img-placeholder.sub-cover {
+        height: 180px;
+    }
+
+    .cta-banner {
+        padding: 20px 16px;
+    }
+
+    .cta-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .article-meta span:nth-child(2),
+    .article-meta span:nth-child(4) {
+        display: none;
+        /* 모바일에서 가독성을 위해 불릿 구분선 숨김 처리 */
+    }
+
+    .article-meta {
+        gap: 6px 12px;
+    }
+}

@@ -97,14 +97,24 @@
     <!-- 공통 네비게이션 헤더 -->
     <header class="site-header">
         <div class="nav-container">
-            <a href="../index.html" class="logo">WorkTools</a>
+            <a href="/index.html" class="logo">WorkTools</a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="word-counter.html">글자수 세기</a></li>
-                    <li><a href="annual-leave.html">연차 계산기</a></li>
-                    <li><a href="dday-calculator.html">D-Day 계산기</a></li>
-                    <li><a href="severance-pay.html">퇴직금 계산기</a></li>
-                    <li><a href="px-to-rem.html">PX↔REM/WebP</a></li>
+                    <!-- 드롭다운 메뉴 (유용한 도구) -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownBtn">
+                            유용한 도구 <span class="arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/word-counter.html">글자수 세기</a></li>
+                            <li><a href="/pages/annual-leave.html">연차 계산기</a></li>
+                            <li><a href="/pages/dday-calculator.html">D-Day 계산기</a></li>
+                            <li><a href="/pages/severance-pay.html">퇴직금 계산기</a></li>
+                            <li><a href="/pages/salary-calculator.html">급여/실수령액 계산기</a></li>
+                            <li><a href="/pages/px-to-rem.html">PX↔REM/WebP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pages/magazine.html" style="color: var(--primary); font-weight:bold;">실무 매거진</a></li>
                 </ul>
             </nav>
             <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
@@ -211,6 +221,13 @@
 
     <!-- 푸터 -->
     <footer>
+        <div style="margin-bottom: 10px;">
+            <a href="pages/about.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">서비스 소개</a>
+            |
+            <a href="pages/terms.html" style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">이용약관</a> |
+            <a href="pages/privacy.html"
+                style="color: var(--text-sub); margin: 0 8px; text-decoration: none;">개인정보처리방침</a>
+        </div>
         <p>© 2026 WorkTools. All rights reserved.</p>
     </footer>
 
